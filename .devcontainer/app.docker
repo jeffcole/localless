@@ -6,8 +6,8 @@ ARG IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-${DEBIAN_
 
 FROM ${IMAGE}
 
-# install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
+# install dependencies
+RUN apt-get update -y && apt-get install -y build-essential git inotify-tools \
     && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 WORKDIR ${HOME}
